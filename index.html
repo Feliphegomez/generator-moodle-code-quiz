@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Generador de código GIFT - Evaluaciones Emtelco BPO & CX - Developed by !FelipheGomez</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/theme/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="dist/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dist/css/blog.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="dist/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<style>
+		.entry:not(:first-of-type){ margin-top: 10px; }
+		.glyphicon{ font-size: 12px; }
+	</style>
+  </head>
+
+	<body>
+		<div class="container">
+
+			<div class="blog-header">
+				<h1 class="blog-title">Generador de Código Evaluaciones Emtelco</h1>
+				<p class="lead blog-description">Este aplicativo es uso exclusivo para el personal de Medios Virtuales Emtelco BPO & CX.</p>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-8 blog-main">
+					<div class="blog-post">            
+						<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"></div>
+						<hr>
+						<!-- <a class="btn btn-sm btn-primary" style="float:right;" href="javascript:newBoxPregunta();"><i class="glyphicon glyphicon-plus"></i></a> -->
+						<a class="btn btn-sm btn-danger"  href="javascript:newBoxPreguntas('unique');">Multiples Opciones Con Unica Respuesta</a>
+						<a class="btn btn-sm btn-success" href="javascript:newBoxPreguntas('multiple');">Multiples Opciones Con Multiples Respuesta</a>
+						<a class="btn btn-sm btn-info" href="javascript:newBoxPreguntas('boolean');">Falso / Verdadero</a>
+						<a class="btn btn-sm btn-warning" href="javascript:newBoxPreguntas('pairing');">Emparejamiento</a>
+					</div>
+				</div>
+			
+				<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+					<div class="sidebar-module sidebar-module-inset">
+						<div id="messages-global"></div>
+					</div>
+				
+					<div class="sidebar-module sidebar-module-inset">
+						
+						
+						<div class="row">
+							<div class="control-group" id="fields">
+								<label class="control-label" for="field1">Categoria de la Evaluacion</label>
+								<div class="controls"> 
+									<form role="form" autocomplete="off">
+										<div class="entry input-group col-xs-12">
+											<input class="form-control inputs-category" name="category" type="text" placeholder="Ingrese la categoría" />
+											<span class="input-group-btn">
+												<button class="btn btn-success btn-add" type="button">
+													<span class="glyphicon glyphicon-plus"></span>
+												</button>
+											</span>
+										</div>
+									</form>
+								<br>
+								<small>Presione <span class="glyphicon glyphicon-plus gs"></span> para agregar otra categoria</small>
+								</div>
+							</div>
+						</div>
+						
+						
+					</div>
+					
+					
+					<div class="sidebar-module sidebar-module-inset">
+						<h4>Preguntas</h4>
+						<table class="table table-responsive">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Pregunta</th>
+									<th>Type</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody class="body-table-querys">
+							</tbody>
+						</table>
+					</div>
+				  
+				  
+					<nav>
+						<ul class="pager">
+							<li><a href="javascript:generarCode();">Generar</a></li>
+							<li class="info"><a href="javascript:download('fg');">Descargar TXT</a></li>
+							<!-- <li><a href="javascript:download2();">Descargar Opcion 2</a></li> -->
+						</ul>
+					</nav>
+				  
+					<!--
+						<div class="sidebar-module">
+							<h4>Preguntas</h4>
+							<ol class="list-unstyled">
+								<li><a href="#">Pregunta # 1</a></li>
+							</ol>
+						</div>
+						<div class="sidebar-module">
+							<h4>Elsewhere</h4>
+							<ol class="list-unstyled">
+								<li><a href="#">GitHub</a></li>
+								<li><a href="#">Twitter</a></li>
+								<li><a href="#">Facebook</a></li>
+							</ol>
+						</div> 
+					-->
+				  
+					<div class="form-group">
+						<label for="message-text" class="control-label">Resultado Codigo:</label>
+						<textarea readonly="true" class="form-control" id="result-code" style="width: 100%;min-width: 100%;max-width: 100%;height: 300px;min-height: 300px;max-height: 300px;"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="blog-footer">
+		  <p>Generador de código GIFT - Evaluaciones Emtelco BPO & CX.</p>
+		  <p>Developed by <a href="http://feliphegomez.info">!FelipheGomez</a>.</p>
+		</footer>
+
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="dist/js/vendor/jquery.min.js"><\/script>')</script>
+		<script src="dist/js/bootstrap.min.js"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="dist/js/ie10-viewport-bug-workaround.js"></script>
+		<script src="dist/js/main.js"></script>
+		
+		<script>
+			(function($){
+				$(document).on('click', '.btn-add', function(e)
+				{
+					e.preventDefault();
+
+					var controlForm = $('.controls form:first'),
+						currentEntry = $(this).parents('.entry:first'),
+						newEntry = $(currentEntry.clone()).appendTo(controlForm);
+
+					newEntry.find('input').val('');
+					controlForm.find('.entry:not(:last) .btn-add')
+						.removeClass('btn-add').addClass('btn-remove')
+						.removeClass('btn-success').addClass('btn-danger')
+						.html('<span class="glyphicon glyphicon-minus"></span>');
+				}).on('click', '.btn-remove', function(e)
+				{
+					$(this).parents('.entry:first').remove();
+					e.preventDefault();
+					return false;
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>
